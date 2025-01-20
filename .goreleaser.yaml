@@ -54,7 +54,7 @@ release:
 
 brews:
 - name: leap
-  homepage: https://github.com/ajilk/leap
+  homepage: https://github.com/ajilk/tools
   tap:
     owner: ajilk
     name: leap
