@@ -52,10 +52,10 @@ release:
 
     Released by [GoReleaser](https://github.com/goreleaser/goreleaser).
 
-brews:
-- name: leap
-  homepage: https://github.com/ajilk/tools
-  repository:
-    owner: ajilk
-    name: tools
-    token: "{{ .Env.GH_PAT }}"
+# brews:
+# - name: leap
+#   homepage: https://github.com/ajilk/tools
+#   repository:
+#     owner: ajilk
+#     name: tools
+#     token: "{{ .Env.GH_PAT }}"
