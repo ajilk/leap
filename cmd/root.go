@@ -12,7 +12,7 @@ import (
 var rootCmd = &cobra.Command{
 	Use:    "leap",
 	Short:  "A brief description of your application",
-	Long:   `Look! It is a new update!`
+	Long:   `Look! It is a new update!`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
