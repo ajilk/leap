@@ -51,3 +51,10 @@ release:
     ---
 
     Released by [GoReleaser](https://github.com/goreleaser/goreleaser).
+
+brews:
+- name: leap
+  homepage: https://github.com/ajilk/leap
+  tap:
+    owner: ajilk
+    name: leap
