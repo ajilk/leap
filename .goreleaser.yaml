@@ -58,4 +58,4 @@ brews:
   repository:
     owner: ajilk
     name: tools
-    token: "{{ .Env.GH_PAT }}"
+    token: "{{ .Env.GITHUB_SECRET }}"
