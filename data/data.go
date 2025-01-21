@@ -15,7 +15,7 @@ func OpenDatabase() error {
 
 	var err error
 
-	db, err = sql.Open("sqlite3", "./tiny.db")
+	db, err = sql.Open("sqlite3", "./.data.db")
 	if err != nil {
 		return err
 	}
