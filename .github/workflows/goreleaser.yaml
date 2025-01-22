@@ -20,7 +20,7 @@ jobs:
       - name: Install sqlc
         run: go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
       - name: Run sqlc generate
-        run: sqlc generate
+        run: cd data && sqlc generate
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
         with:
