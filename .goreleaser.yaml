@@ -16,11 +16,9 @@ before:
     - go generate ./...
 
 builds:
-  - id: darwin_amd64
+  - id: mac
     goos:
       - darwin
-    goarch:
-      - amd64
     env:
       - CGO_ENABLED=1
 
