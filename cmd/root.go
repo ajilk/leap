@@ -10,7 +10,6 @@ import (
 var rootCmd = &cobra.Command{
 	Use:   "leap",
 	Short: "leap from one thought to another",
-	Long:  `Look! It is a new update!`,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -22,6 +21,4 @@ func Execute() {
 	}
 }
 
-func init() {
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-}
+func init() { }

@@ -30,3 +30,7 @@ delete from bookmarks
 where id = ?
 ;
 
+-- name: DeleteAllBookmarks :exec
+delete from bookmarks
+;
+

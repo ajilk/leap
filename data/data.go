@@ -40,8 +40,6 @@ func OpenDatabase() error {
 		return err
 	}
 
-	log.Debug("Successfully connected to the database!", "path", path)
-
 	return db.Ping()
 }
 
@@ -58,28 +56,47 @@ func CreateBookmarksTable() error {
 	return nil
 }
 
-func InsertAndFetch() error {
+func InsertBookmark(key string, value string) something.Bookmark {
 	ctx := context.Background()
 	queries := something.New(db)
 
 	bookmark, err := queries.CreateBookmark(ctx, something.CreateBookmarkParams{
-		Key:   "Key Here",
-		Value: sql.NullString{String: "Value Here", Valid: true},
+		Key:   key,
+		Value: value,
 	})
 
   if err != nil {
-    log.Error(err)
-    return err
+    panic(err)
   }
 
+  return bookmark
+}
+
+func ListBookmarks() []something.Bookmark {
+	ctx := context.Background()
+	queries := something.New(db)
 
 	bookmarks, err := queries.ListBookmarks(ctx)
 	if err != nil {
     log.Error(err)
-		return err
+		panic(err)
 	}
 
-	log.Debug(bookmarks)
-	log.Debug(bookmark)
-	return nil
+  return bookmarks
 }
+
+func DeleteAllBookmarks() {
+	ctx := context.Background()
+	queries := something.New(db)
+
+	err := queries.DeleteAllBookmarks(ctx)
+	if err != nil {
+    log.Error(err)
+		panic(err)
+	}
+}
+
+
+
+
+

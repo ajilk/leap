@@ -1,5 +1,6 @@
 CREATE TABLE bookmarks (
-  id   INTEGER PRIMARY KEY,
-  key text    NOT NULL,
-  value  text
+  id    INTEGER PRIMARY KEY,
+  key   text    NOT NULL,
+  value text    NOT NULL
 );
+
