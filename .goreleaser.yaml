@@ -23,6 +23,7 @@ builds:
       - arm64
     env:
       - CGO_ENABLED=1
+      - CC=o64-clang
 
 archives:
   - format: tar.gz
