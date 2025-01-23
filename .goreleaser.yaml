@@ -16,10 +16,8 @@ before:
     - go generate ./...
 
 builds:
-  - env:
-      - CGO_ENABLED=0
-    goos:
-      - darwin
+  goos:
+    - darwin
 
 archives:
   - format: tar.gz
@@ -51,9 +49,9 @@ release:
     Released by [GoReleaser](https://github.com/goreleaser/goreleaser).
 
 brews:
-- name: leap
-  homepage: https://github.com/ajilk/tools
-  repository:
-    owner: ajilk
-    name: tools
-    token: "{{ .Env.GH_PAT }}"
+  - name: leap
+    homepage: https://github.com/ajilk/tools
+    repository:
+      owner: ajilk
+      name: tools
+      token: "{{ .Env.GH_PAT }}"
