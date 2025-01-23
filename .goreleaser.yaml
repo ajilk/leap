@@ -16,10 +16,13 @@ before:
     - go generate ./...
 
 builds:
-  - env:
-      - CGO_ENABLED=1
+  - id: darwin_arm64
     goos:
       - darwin
+    goarch:
+      - arm64
+    env:
+      - CGO_ENABLED=1
 
 archives:
   - format: tar.gz
