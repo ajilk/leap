@@ -6,7 +6,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// wipeCmd represents the wipe command
 var wipeCmd = &cobra.Command{
 	Use:   "wipe",
 	Short: "wipe out all bookmarks",

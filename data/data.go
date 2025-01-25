@@ -23,20 +23,20 @@ var ddl string
 func OpenDatabase() error {
 	home, err := os.UserHomeDir()
 	if err != nil {
-    log.Error(err)
+		log.Error(err)
 		return err
 	}
 
 	path := filepath.Join(home, ".leap", "data.db")
 	err = os.MkdirAll(filepath.Dir(path), 0755) // Ensure the directory exists
 	if err != nil {
-    log.Error(err)
+		log.Error(err)
 		return err
 	}
 
 	db, err = sql.Open("sqlite3", path)
 	if err != nil {
-    log.Error(err)
+		log.Error(err)
 		return err
 	}
 
@@ -48,7 +48,7 @@ func CreateBookmarksTable() error {
 
 	// create tables
 	if _, err := db.ExecContext(ctx, ddl); err != nil {
-    log.Error(err)
+		log.Error(err)
 		return err
 	}
 
@@ -65,11 +65,11 @@ func InsertBookmark(key string, value string) something.Bookmark {
 		Value: value,
 	})
 
-  if err != nil {
-    panic(err)
-  }
+	if err != nil {
+		panic(err)
+	}
 
-  return bookmark
+	return bookmark
 }
 
 func ListBookmarks() []something.Bookmark {
@@ -78,11 +78,11 @@ func ListBookmarks() []something.Bookmark {
 
 	bookmarks, err := queries.ListBookmarks(ctx)
 	if err != nil {
-    log.Error(err)
+		log.Error(err)
 		panic(err)
 	}
 
-  return bookmarks
+	return bookmarks
 }
 
 func DeleteAllBookmarks() {
@@ -91,12 +91,7 @@ func DeleteAllBookmarks() {
 
 	err := queries.DeleteAllBookmarks(ctx)
 	if err != nil {
-    log.Error(err)
+		log.Error(err)
 		panic(err)
 	}
 }
-
-
-
-
-

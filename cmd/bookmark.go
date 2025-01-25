@@ -9,12 +9,10 @@ var bookmarkCmd = &cobra.Command{
 	Short:   "Bookmark <key> <value>",
 	Long:    `Bookmark command allows you to save and retrieve bookmarks with a key-value pair.`,
 	Aliases: []string{"b"},
-
 	Run: func(cmd *cobra.Command, args []string) {
 		helpFlag, _ := cmd.Flags().GetBool("help")
-		if helpFlag {
+		if len(args) == 0 || helpFlag {
 			cmd.Help() // Display the help message
-			return
 		}
 	},
 }

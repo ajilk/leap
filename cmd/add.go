@@ -7,7 +7,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// addCmd represents the add command
 var addCmd = &cobra.Command{
 	Use:   "add",
 	Short: "add a new bookmark",
@@ -21,7 +20,7 @@ var addCmd = &cobra.Command{
 		key := args[0]
 		value := args[1]
 
-		data.InsertBookmark(key, value) // Replace with a specific insert function
+		data.InsertBookmark(key, value)
 		fmt.Printf("Bookmark saved: %s -> %s\n", key, value)
 	},
 }
