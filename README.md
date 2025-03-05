@@ -17,11 +17,12 @@ cli app to leap from one thought to another
 - charmbracelet/log
 - charmbracelet/lipgloss
 
-### tap, install and update
+### tap, install and upgrade
 ```
 brew tap ajilk/leap http://github.com/ajilk/leap
 brew install leap
 brew update
+brew upgrade leap
 ```
 
 ### build && run

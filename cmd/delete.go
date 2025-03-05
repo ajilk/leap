@@ -2,6 +2,8 @@ package cmd
 
 import (
 	"fmt"
+	"leap/data"
+	"strconv"
 
 	"github.com/spf13/cobra"
 )
@@ -13,7 +15,10 @@ var deleteCmd = &cobra.Command{
 	Long:    "delete bookmark",
 	Aliases: []string{"d"},
 	Run: func(cmd *cobra.Command, args []string) {
-    fmt.Printf("delete called: {%s}\n", args[0])
+		id, _ := strconv.Atoi(args[0])
+		data.DeleteBookmark(id)
+
+		fmt.Printf("Deleted: %d\n", id)
 	},
 }
 

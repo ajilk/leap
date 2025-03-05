@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"leap/data"
 	"os"
-	"text/template"
 
+	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/spf13/cobra"
 )
 
@@ -19,20 +19,16 @@ var listCmd = &cobra.Command{
 			return
 		}
 
-		templateContent := `{{range $index, $bookmark := .}}{{if $index}}
-{{end}}{{.Key}} - {{.Value}}{{end}}
-`
+		t := table.NewWriter()
+		t.SetStyle(table.StyleLight)
+		t.SetOutputMirror(os.Stdout)
 
-		tmpl, err := template.New("bookmarks").Parse(templateContent)
-		if err != nil {
-			fmt.Printf("Error parsing template: %v\n", err)
-			return
+		t.AppendHeader(table.Row{"id", "name", "url"})
+		for _, value := range bookmarks {
+			t.AppendRow(table.Row{value.ID, value.Key, value.Value})
 		}
 
-		err = tmpl.Execute(os.Stdout, bookmarks)
-		if err != nil {
-			fmt.Printf("Error rendering template: %v\n", err)
-		}
+		t.Render()
 	},
 }
 

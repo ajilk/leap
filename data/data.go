@@ -85,6 +85,17 @@ func ListBookmarks() []something.Bookmark {
 	return bookmarks
 }
 
+func DeleteBookmark(id int) {
+	ctx := context.Background()
+	queries := something.New(db)
+
+	err := queries.DeleteBookmark(ctx, int64(id))
+	if err != nil {
+		log.Error(err)
+		panic(err)
+	}
+}
+
 func DeleteAllBookmarks() {
 	ctx := context.Background()
 	queries := something.New(db)
