@@ -16,3 +16,8 @@ cli app to leap from one thought to another
 - text/template
 - charmbracelet/log
 - charmbracelet/lipgloss
+
+### build && run
+```
+go build && ./leap
+```

@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"slices"
+
 	"github.com/spf13/cobra"
 )
 
@@ -11,8 +13,20 @@ var bookmarkCmd = &cobra.Command{
 	Aliases: []string{"b"},
 	Run: func(cmd *cobra.Command, args []string) {
 		helpFlag, _ := cmd.Flags().GetBool("help")
-		if len(args) == 0 || helpFlag {
+		if helpFlag {
 			cmd.Help() // Display the help message
+		}
+
+		if len(args) >= 2 {
+			id := args[0]
+			action := args[1]
+
+			switch {
+			case action == deleteCmd.Name() || slices.Contains(deleteCmd.Aliases, action):
+				deleteCmd.Run(deleteCmd, []string{id})
+			}
+		} else {
+			listCmd.Run(listCmd, []string{})
 		}
 	},
 }
